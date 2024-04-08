@@ -51,6 +51,7 @@ const Register = () => {
             })
     }
 
+
     return (
         <div className="">
             <Navbar></Navbar>

@@ -7,15 +7,22 @@ import { FaFacebookF, FaGithub, FaGoogle, FaInstagram, FaTwitter } from 'react-i
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from "../../providers/AuthProvider";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
+    const {signIn, googleLogin} = useContext(AuthContext);
     // const location = useLocation();
     // const navigate = useNavigate();
     // console.log('location in the login page', location);
 
+    // const auth = getAuth(app);
+
+    // const provider = new GoogleAuthProvider();
+
     const [showPassword, setShowPassword] = useState(false);
+    // const [user, setUser] = useState(null);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -36,6 +43,19 @@ const Login = () => {
             console.error(error);
         })
     }
+
+    // const handleGoogleSignIn = () =>{
+    //     signInWithPopup(auth, provider)
+    //     .then(result =>{
+    //         const loggedInUser = result.user;
+    //         console.log(loggedInUser);
+    //         setUser(loggedInUser);
+    //     })
+    //     .catch(error =>{
+    //         console.error('error', error.message);
+    //     })
+
+    // }
 
     return (
         <div className="">
@@ -76,7 +96,7 @@ const Login = () => {
                 </form>
                 <p className="font-semibold text-center">Don't have an account? Please <Link to='/register' className="text-red-500">Register</Link></p>
                 <div className='p-2  mt-6 flex justify-evenly'>
-                    <button className="btn btn-outline hover:bg-[#23BE0A]">
+                    <button onClick={() => googleLogin()} className="btn btn-outline hover:bg-[#23BE0A]">
                         <FaGoogle></FaGoogle>
                         Login with Google
                     </button>
@@ -86,6 +106,12 @@ const Login = () => {
                     </button>
                 </div>
             </div>
+            {/* {
+                user && <div>
+                    <h3>User: {user.displayName}</h3>
+                    <p>Email: {user.email}</p>
+                </div>
+            } */}
         </div>
     );
 };

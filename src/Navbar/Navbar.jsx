@@ -4,12 +4,12 @@ import { AuthContext } from "../providers/AuthProvider";
 
 
 const Navbar = () => {
-    const { user,logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
-    const handleSignOut = () =>{
+    const handleSignOut = () => {
         logOut()
-        .then()
-        .catch()
+            .then()
+            .catch()
     }
 
     const navLinks = <>
@@ -48,17 +48,20 @@ const Navbar = () => {
             <div className="navbar-end gap-4">
                 {
                     user ?
-                        <button onClick={handleSignOut} className="btn rounded-none bg-[#23BE0A] text-white text-lg px-8">Log Out</button>
+                        <>
+                            <button onClick={handleSignOut} className="btn rounded-none bg-[#23BE0A] text-white text-lg px-8">Log Out</button>
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip="hello">
+                                <div className=" w-12 rounded-full">
+                                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                </div>
+                            </div>
+                        </>
                         :
                         <Link to='/login'>
                             <button className="btn rounded-none bg-[#23BE0A] text-white text-lg px-8">Login</button>
                         </Link>
                 }
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip" data-tip="hello">
-                    <div className=" w-12 rounded-full">
-                        <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                    </div>
-                </div>
+
 
 
 
