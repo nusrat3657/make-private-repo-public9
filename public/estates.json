@@ -1,0 +1,144 @@
+[
+    {
+        "id": 1,
+        "image": "image1.jpg",
+        "estate_title": "Beautiful Farmland",
+        "segment_name": "Agricultural Land",
+        "description": "A vast expanse of fertile land ready for cultivation.",
+        "price": 50000,
+        "status": "sale",
+        "area": "100 acres",
+        "location": "Rural countryside",
+        "facilities": [
+            "Water access",
+            "Electricity connection"
+        ]
+    },
+    {
+        "id": 2,
+        "image": "image2.jpg",
+        "estate_title": "Rustic Ranch Retreat",
+        "segment_name": "Ranches",
+        "description": "A charming ranch with scenic views and ample grazing space.",
+        "price": 800000,
+        "status": "sale",
+        "area": "500 acres",
+        "location": "Mountain valley",
+        "facilities": [
+            "Stables",
+            "Pond",
+            "Trails"
+        ]
+    },
+    {
+        "id": 3,
+        "image": "image3.jpg",
+        "estate_title": "Organic Farmstead",
+        "segment_name": "Farms",
+        "description": "A sustainable farm producing organic fruits and vegetables.",
+        "price": 300000,
+        "status": "sale",
+        "area": "50 acres",
+        "location": "Rolling hills",
+        "facilities": [
+            "Greenhouses",
+            "Farmhouse",
+            "Irrigation system"
+        ]
+    },
+    {
+        "id": 4,
+        "image": "image4.jpg",
+        "estate_title": "Vineyard Estate",
+        "segment_name": "Vineyards",
+        "description": "A picturesque vineyard producing award-winning wines.",
+        "price": 1200000,
+        "status": "sale",
+        "area": "200 acres",
+        "location": "Wine country",
+        "facilities": [
+            "Winery",
+            "Tasting room",
+            "Grapevines"
+        ]
+    },
+    {
+        "id": 5,
+        "image": "image5.jpg",
+        "estate_title": "Enchanted Forest Reserve",
+        "segment_name": "Forests",
+        "description": "An enchanting forest teeming with biodiversity and natural beauty.",
+        "price": 200000,
+        "status": "rent",
+        "area": "300 acres",
+        "location": "Wilderness",
+        "facilities": [
+            "Hiking trails",
+            "Campgrounds",
+            "Wildlife viewing areas"
+        ]
+    },
+    {
+        "id": 6,
+        "image": "image6.jpg",
+        "estate_title": "Tropical Plantation Paradise",
+        "segment_name": "Plantations",
+        "description": "A lush plantation filled with exotic fruits and tropical flora.",
+        "price": 1500000,
+        "status": "sale",
+        "area": "150 acres",
+        "location": "Tropical region",
+        "facilities": [
+            "Fruit orchards",
+            "Palm groves",
+            "Harvesting equipment"
+        ]
+    },
+    {
+        "id": 7,
+        "image": "image7.jpg",
+        "estate_title": "Fertile Farmland",
+        "segment_name": "Agricultural Land",
+        "description": "Rich, fertile land ideal for agricultural purposes.",
+        "price": 45000,
+        "status": "sale",
+        "area": "80 acres",
+        "location": "Countryside",
+        "facilities": [
+            "Water rights",
+            "Irrigation system"
+        ]
+    },
+    {
+        "id": 8,
+        "image": "image8.jpg",
+        "estate_title": "Modern Ranch Retreat",
+        "segment_name": "Ranches",
+        "description": "A modern ranch with luxurious amenities and panoramic views.",
+        "price": 1500000,
+        "status": "sale",
+        "area": "600 acres",
+        "location": "Scenic valley",
+        "facilities": [
+            "Luxury mansion",
+            "Swimming pool",
+            "Helipad"
+        ]
+    },
+    {
+        "id": 9,
+        "image": "image9.jpg",
+        "estate_title": "Secluded Forest Sanctuary",
+        "segment_name": "Forests",
+        "description": "A secluded forest sanctuary offering tranquility and seclusion.",
+        "price": 250000,
+        "status": "rent",
+        "area": "400 acres",
+        "location": "Remote wilderness",
+        "facilities": [
+            "Cabin retreats",
+            "Fishing ponds",
+            "Nature trails"
+        ]
+    }
+]
