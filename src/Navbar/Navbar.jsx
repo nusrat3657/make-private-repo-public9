@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, googleLogin } = useContext(AuthContext);
 
     const handleSignOut = () => {
         logOut()
@@ -50,9 +50,9 @@ const Navbar = () => {
                     user ?
                         <>
                             <button onClick={handleSignOut} className="btn rounded-none bg-[#23BE0A] text-white text-lg px-8">Log Out</button>
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip="hello">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user.displayName}>
                                 <div className=" w-12 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
                                 </div>
                             </div>
                         </>
@@ -61,8 +61,6 @@ const Navbar = () => {
                             <button className="btn rounded-none bg-[#23BE0A] text-white text-lg px-8">Login</button>
                         </Link>
                 }
-
-
 
 
             </div>
