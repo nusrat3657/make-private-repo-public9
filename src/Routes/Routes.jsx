@@ -3,8 +3,8 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home/Home";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import ContactUs from "../pages/ContactUs/ContactUs";
-import Login from "../Login/Login";
-import Register from "../Register/Register";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 
 
 

@@ -1,15 +1,16 @@
-// import { useContext } from "react";
+
 // import { createUser } from "firebase/auth";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../Navbar/Navbar";
 import { Link } from "react-router-dom";
 // import { useState } from "react";
-// import { ToastContainer, toast } from 'react-toastify';
-import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Register = () => {
-    // const { createUser } = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -23,31 +24,31 @@ const Register = () => {
         const password = form.get('password');
         console.log(name, photo, email, password);
 
-        // if (password.length < 6) {
-        //     toast.warn('Password  must be at least 6 characters or longer');
-        //     return;
-        // }
-        // else if (!/[A-Z]/.test(password)) {
-        //     toast.warn('Password must have an Uppercase letter');
-        //     return;
-        // }
-        // else if (!/[a-z]/.test(password)) {
-        //     toast.warn('Password must have an Lowercase letter');
-        //     return;
-        // }
+        if (password.length < 6) {
+            toast.warn('Password  must be at least 6 characters or longer');
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            toast.warn('Password must have an Uppercase letter');
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            toast.warn('Password must have an Lowercase letter');
+            return;
+        }
 
 
 
         // create user
-        // createUser(email, password)
-        //     .then(result => {
-        //         console.log(result.user);
-        //         toast.success('User created successfully');
-        //     })
-        //     .catch(error => {
-        //         console.error(error);
-        //         toast.error('Something went wrong, please try again');
-        //     })
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                toast.success('User created successfully');
+            })
+            .catch(error => {
+                console.error(error);
+                toast.error('Something went wrong, please try again');
+            })
     }
 
     return (
@@ -65,15 +66,15 @@ const Register = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-lg font-semibold">Photo URL</span>
-                        </label>
-                        <input type="text" name="photo" placeholder="Enter Your photo url" className="input input-bordered" required />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
                             <span className="label-text text-lg font-semibold">Email</span>
                         </label>
                         <input type="email" name="email" placeholder="Enter your email address" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-lg font-semibold">Photo URL</span>
+                        </label>
+                        <input type="text" name="photo" placeholder="Enter Your photo url" className="input input-bordered" required />
                     </div>
                     <div className="form-control ">
                         <label className="label">
@@ -98,7 +99,7 @@ const Register = () => {
                 </form>
                 <p className="font-semibold text-center">Already have an account? Please <Link to='/login' className="text-red-500">Login</Link></p>
             </div>
-            {/* <ToastContainer /> */}
+            <ToastContainer />
         </div>
     );
 };

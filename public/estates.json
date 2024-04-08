@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "image": "image1.jpg",
+        "image": "https://i.ibb.co/ykDdY8L/agricultural-land.jpg",
         "estate_title": "Beautiful Farmland",
         "segment_name": "Agricultural Land",
         "description": "A vast expanse of fertile land ready for cultivation.",
@@ -16,7 +16,7 @@
     },
     {
         "id": 2,
-        "image": "image2.jpg",
+        "image": "https://i.ibb.co/7bY5BSm/ranches.jpg",
         "estate_title": "Rustic Ranch Retreat",
         "segment_name": "Ranches",
         "description": "A charming ranch with scenic views and ample grazing space.",
@@ -32,7 +32,7 @@
     },
     {
         "id": 3,
-        "image": "image3.jpg",
+        "image": "https://i.ibb.co/qDmGCBG/farmhouse.jpg",
         "estate_title": "Organic Farmstead",
         "segment_name": "Farms",
         "description": "A sustainable farm producing organic fruits and vegetables.",
@@ -48,7 +48,7 @@
     },
     {
         "id": 4,
-        "image": "image4.jpg",
+        "image": "https://i.ibb.co/tYLT8CS/vineyards.jpg",
         "estate_title": "Vineyard Estate",
         "segment_name": "Vineyards",
         "description": "A picturesque vineyard producing award-winning wines.",
@@ -64,7 +64,7 @@
     },
     {
         "id": 5,
-        "image": "image5.jpg",
+        "image": "https://i.ibb.co/TYZHs0P/forest.jpg",
         "estate_title": "Enchanted Forest Reserve",
         "segment_name": "Forests",
         "description": "An enchanting forest teeming with biodiversity and natural beauty.",
@@ -80,7 +80,7 @@
     },
     {
         "id": 6,
-        "image": "image6.jpg",
+        "image": "https://i.ibb.co/n7DMjqN/plantation.jpg",
         "estate_title": "Tropical Plantation Paradise",
         "segment_name": "Plantations",
         "description": "A lush plantation filled with exotic fruits and tropical flora.",
@@ -96,7 +96,7 @@
     },
     {
         "id": 7,
-        "image": "image7.jpg",
+        "image": "https://i.ibb.co/jkrxm24/banner2.jpg",
         "estate_title": "Fertile Farmland",
         "segment_name": "Agricultural Land",
         "description": "Rich, fertile land ideal for agricultural purposes.",
@@ -111,7 +111,7 @@
     },
     {
         "id": 8,
-        "image": "image8.jpg",
+        "image": "https://i.ibb.co/mXB9vDk/banner3.jpg",
         "estate_title": "Modern Ranch Retreat",
         "segment_name": "Ranches",
         "description": "A modern ranch with luxurious amenities and panoramic views.",
@@ -127,7 +127,7 @@
     },
     {
         "id": 9,
-        "image": "image9.jpg",
+        "image": "https://i.ibb.co/d6pQv2Q/forest2.jpg",
         "estate_title": "Secluded Forest Sanctuary",
         "segment_name": "Forests",
         "description": "A secluded forest sanctuary offering tranquility and seclusion.",

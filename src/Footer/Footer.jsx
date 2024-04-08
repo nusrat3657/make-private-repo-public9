@@ -5,10 +5,10 @@ const Footer = () => {
         <footer className="footer p-10 bg-base-300 text-base-content lg:px-[250px]">
             <nav>
                 <h6 className="footer-title">Services</h6>
-                <a className="link link-hover">Branding</a>
-                <a className="link link-hover">Design</a>
-                <a className="link link-hover">Marketing</a>
-                <a className="link link-hover">Advertisement</a>
+                <a className="link link-hover">Agricultural Land</a>
+                <a className="link link-hover">Forest</a>
+                <a className="link link-hover">Farm</a>
+                <a className="link link-hover">Plantation</a>
             </nav>
             <nav>
                 <h6 className="footer-title">Company</h6>

@@ -1,15 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 // import { useContext } from "react";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../Navbar/Navbar";
 import { Link } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import { FaFacebookF, FaGithub, FaGoogle, FaInstagram, FaTwitter } from 'react-icons/fa';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Login = () => {
-    // const {signIn} = useContext(AuthContext);
+    const {signIn} = useContext(AuthContext);
     // const location = useLocation();
     // const navigate = useNavigate();
     // console.log('location in the login page', location);
@@ -23,17 +24,17 @@ const Login = () => {
         const email = form.get('email');
         const password = form.get('password');
         console.log(email, password);
-        // signIn(email, password)
-        // .then(result =>{
-        //     console.log(result.user);
+        signIn(email, password)
+        .then(result =>{
+            console.log(result.user);
 
         // navigate after login
         // navigate(location?.state ? location.state : '/')
 
-        // })
-        // .catch(error =>{
-        //     console.error(error);
-        // })
+        })
+        .catch(error =>{
+            console.error(error);
+        })
     }
 
     return (
@@ -73,7 +74,7 @@ const Login = () => {
                         <button className="btn bg-[#23BE0A] text-white font-semibold text-lg">Login</button>
                     </div>
                 </form>
-                <p className="font-semibold text-center">Don't have an account? Please<Link to='/register' className="text-red-500">Register</Link></p>
+                <p className="font-semibold text-center">Don't have an account? Please <Link to='/register' className="text-red-500">Register</Link></p>
                 <div className='p-2  mt-6 flex justify-evenly'>
                     <button className="btn btn-outline hover:bg-[#23BE0A]">
                         <FaGoogle></FaGoogle>

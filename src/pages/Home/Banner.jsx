@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 
-import banner1 from '../../assets/banner1.jpg';
+import banner1 from '../../assets/forest.jpg';
 import banner2 from '../../assets/banner2.jpg';
 import banner3 from '../../assets/banner3.jpg';
 
@@ -16,6 +16,7 @@ const Banner = () => {
     return (
         <div className='mb-10 my-5'>
             <Swiper
+            className='lg:mt-10 my-5 mt-40'
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={50}
             slidesPerView={1}
