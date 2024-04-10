@@ -2,12 +2,13 @@
 // import { useContext } from "react";
 import Navbar from "../../Navbar/Navbar";
 import { Link, useLocation } from "react-router-dom";
-// eslint-disable-next-line no-unused-vars
-import { FaFacebookF, FaGithub, FaGoogle, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -26,34 +27,36 @@ const Login = () => {
         signIn(email, password)
         .then(result => {
             console.log(result.user);
+            toast.success('User Login Successfully');
         })
         .catch(error => {
             console.error(error);
+            toast.error(error.message);
         })
     }
 
     
     // const [user, setUser] = useState(null);
 
-    const handleLogin = e => {
-        e.preventDefault();
-        console.log(e.currentTarget);
-        const form = new FormData(e.currentTarget);
-        const email = form.get('email');
-        const password = form.get('password');
-        console.log(email, password);
-        signIn(email, password)
-        .then(result =>{
-            console.log(result.user);
+    // const handleLogin = e => {
+    //     e.preventDefault();
+    //     console.log(e.currentTarget);
+    //     const form = new FormData(e.currentTarget);
+    //     const email = form.get('email');
+    //     const password = form.get('password');
+    //     console.log(email, password);
+    //     signIn(email, password)
+    //     .then(result =>{
+    //         console.log(result.user);
 
         // navigate after login
         // navigate(location?.state ? location.state : '/')
 
-        })
-        .catch(error =>{
-            console.error(error);
-        })
-    }
+    //     })
+    //     .catch(error =>{
+    //         console.error(error);
+    //     })
+    // }
 
     return (
         <div className="">
@@ -106,6 +109,7 @@ const Login = () => {
                     </button>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     );
 };
