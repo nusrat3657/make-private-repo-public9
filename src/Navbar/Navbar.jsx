@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 
 const Navbar = () => {
-    const { user, logOut, googleLogin } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const handleSignOut = () => {
         logOut()
@@ -61,13 +61,7 @@ const Navbar = () => {
                             <button className="btn rounded-none bg-[#23BE0A] text-white text-lg px-8">Login</button>
                         </Link>
                 }
-
-
             </div>
-            {/* <div className="navbar-end">
-                <a className="btn bg-[#23BE0A] border-2  text-white font-bold mr-4">Sign In</a>
-                <a className="btn bg-[#59C6D2] text-white font-bold">Sign up</a>
-            </div> */}
         </div>
     );
 };

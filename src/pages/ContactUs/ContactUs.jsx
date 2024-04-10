@@ -4,11 +4,13 @@
 // import { useMap } from 'react-leaflet/hooks'
 // import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 
+import { Helmet } from "react-helmet-async";
 import Navbar from "../../Navbar/Navbar";
 
 const ContactUs = () => {
     return (
         <div>
+            <Helmet><title>Eco Domain | Contact Us</title></Helmet>
             <Navbar></Navbar>
             <h3 className="text-2xl">Our Location</h3>
             {/* <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>

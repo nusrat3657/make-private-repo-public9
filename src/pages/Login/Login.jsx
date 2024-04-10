@@ -1,27 +1,38 @@
 /* eslint-disable react/no-unescaped-entities */
 // import { useContext } from "react";
 import Navbar from "../../Navbar/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import { FaFacebookF, FaGithub, FaGoogle, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from "../../providers/AuthProvider";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import app from "../../firebase/firebase.config";
+import { useForm } from "react-hook-form";
 
 
 const Login = () => {
-    const {signIn, googleLogin} = useContext(AuthContext);
-    // const location = useLocation();
+    const {signIn, googleLogin, githubLogin} = useContext(AuthContext);
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const location = useLocation();
     // const navigate = useNavigate();
-    // console.log('location in the login page', location);
-
-    // const auth = getAuth(app);
-
-    // const provider = new GoogleAuthProvider();
+    console.log('location in the login page', location);
 
     const [showPassword, setShowPassword] = useState(false);
+
+    const onSubmit = (data) => {
+        const { email, password } = data
+        signIn(email, password)
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+    }
+
+    
     // const [user, setUser] = useState(null);
 
     const handleLogin = e => {
@@ -44,31 +55,19 @@ const Login = () => {
         })
     }
 
-    // const handleGoogleSignIn = () =>{
-    //     signInWithPopup(auth, provider)
-    //     .then(result =>{
-    //         const loggedInUser = result.user;
-    //         console.log(loggedInUser);
-    //         setUser(loggedInUser);
-    //     })
-    //     .catch(error =>{
-    //         console.error('error', error.message);
-    //     })
-
-    // }
-
     return (
         <div className="">
             <Navbar></Navbar>
             <div className="bg-[#23BE0A]/20 rounded-lg md:w-3/4 lg:w-1/2 mx-auto p-10 my-10">
                 <h2 className="text-4xl my-2 text-center font-bold  font-league">Login Your Account</h2>
                 <hr />
-                <form onSubmit={handleLogin} className="card-body ">
+                <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" required />
+                        <input type="email" name="email" placeholder="Enter your email" className="input input-bordered" {...register("email", { required: true })} />
+                        {errors.email && <span className="text-red-500">This field is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -79,7 +78,8 @@ const Login = () => {
                                 type={showPassword ? 'text' : 'password'}
                                 name="password"
                                 placeholder="Enter your password"
-                                className="input input-bordered w-full" required />
+                                className="input input-bordered w-full" {...register("password", { required: true })} />
+                                {errors.password && <span className="text-red-500">This field is required</span>}
                             <span className="absolute top-4 -ml-8" onClick={() => setShowPassword(!showPassword)}>
                                 {
                                     showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
@@ -100,18 +100,12 @@ const Login = () => {
                         <FaGoogle></FaGoogle>
                         Login with Google
                     </button>
-                    <button className="btn btn-outline hover:bg-[#23BE0A]">
+                    <button onClick={() => githubLogin()} className="btn btn-outline hover:bg-[#23BE0A]">
                         <FaGithub></FaGithub>
                         Login with Github
                     </button>
                 </div>
             </div>
-            {/* {
-                user && <div>
-                    <h3>User: {user.displayName}</h3>
-                    <p>Email: {user.email}</p>
-                </div>
-            } */}
         </div>
     );
 };
