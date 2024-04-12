@@ -16,19 +16,27 @@ const Navbar = () => {
         <li><NavLink to="/" className={({ isActive }) =>
             isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
         }>Home</NavLink></li>
-        {/* <li><NavLink to="/register" className={({ isActive }) =>
-            isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
-        }>Register</NavLink></li> */}
-        <li><NavLink to="/user" className={({ isActive }) =>
-            isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
-        }>User Profile</NavLink></li>
+
+        {
+            user ?
+                <>
+                    <li><NavLink to="/user" className={({ isActive }) =>
+                        isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
+                    }>User Profile</NavLink></li>
+                    <li><NavLink to="/update" className={({ isActive }) =>
+                        isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
+                    }>Update Profile</NavLink></li>
+                </>
+                :
+                <></>
+        }
         <li><NavLink to="/contact" className={({ isActive }) =>
             isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
         }>Contact Us</NavLink></li>
     </>
 
     return (
-        <div className="navbar bg-base-100 -ml-2 mt-5">
+        <div className="navbar bg-base-100 lg:-ml-2 mt-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,12 +57,29 @@ const Navbar = () => {
                 {
                     user ?
                         <>
+                            {/* <div>
+                                <NavLink to="/update" className={({ isActive }) =>
+                                    isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
+                                }>Update Profile</NavLink>
+                            </div> */}
                             <button onClick={handleSignOut} className="btn rounded-none bg-[#23BE0A] text-white text-lg px-8">Log Out</button>
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user.displayName}>
+
+
+                            <Link to="/user"><div className="dropdown dropdown-hover">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar"><div className="  rounded-full">
+                                    <img alt="Tailwind CSS Navbar component" src={user?.photoURL || "https://i.ibb.co/PW9Wxt7/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg"} />
+                                </div></div>
+                                <ul tabIndex={0} className="-ml-10 dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box ">
+                                    <li><a>{user?.displayName || "User Name not found"}</a></li>
+                                </ul>
+                            </div></Link>
+
+
+                            {/* <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user?.displayName || "User Name not found"}>
                                 <div className=" w-12 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+                                    <img alt="Tailwind CSS Navbar component" src={user?.photoURL || "https://i.ibb.co/PW9Wxt7/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg"} />
                                 </div>
-                            </div>
+                            </div> */}
                         </>
                         :
                         <Link to='/login'>

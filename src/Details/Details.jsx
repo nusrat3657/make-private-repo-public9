@@ -26,7 +26,7 @@ const Details = () => {
                     <hr />
                     <p className="my-3 text-lg "><span className="font-bold mr-2">Location:  </span> {estate.location}</p>
                     <hr />
-                    <p className="text-lg my-4"><span className="font-bold mr-2">Area: </span>{estate.area}</p>
+                    <p className="text-lg my-4 font-bold">Area: <span className=" mr-2 bg-[#23BE0A]/20 text-[#23BE0A] px-4 py-2 rounded-full font-semibold">{estate.area}</span></p>
                     <div className=" my-4">
                         <hr />
                         <p className="flex text-lg gap-3 mt-4"><span className="font-bold mt-1">Facilities: </span> </p>

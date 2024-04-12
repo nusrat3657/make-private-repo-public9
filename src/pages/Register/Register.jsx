@@ -1,6 +1,6 @@
 
 import Navbar from "../../Navbar/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext, useState } from "react";
@@ -10,14 +10,20 @@ import { useForm } from "react-hook-form";
 
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const [showPassword, setShowPassword] = useState(false);
 
+    const location = useLocation();
+    const from = location?.state || '/'
+
+    const navigate = useNavigate();
+    console.log('location in the login page', location);
+
     const onSubmit = (data) => {
-        const { email, password } = data;
+        const { email, password, image, fullName } = data;
 
         if (password.length < 6) {
             toast.warn('Password  must be at least 6 characters or longer');
@@ -33,10 +39,15 @@ const Register = () => {
         }
 
         // create user
-        createUser(email, password)
+        createUser(email, password, )
             .then(result => {
                 console.log(result.user);
                 toast.success('User created successfully');
+                updateUserProfile(fullName, image)
+                .then(() =>{
+                    navigate(from);
+                })
+                
             })
             .catch(error => {
                 console.error(error);
@@ -45,44 +56,6 @@ const Register = () => {
 
 
     }
-
-
-    // const handleRegister = e => {
-    //     e.preventDefault();
-    //     console.log(e.currentTarget);
-    //     const form = new FormData(e.currentTarget);
-    //     const name = form.get('name');
-    //     const photo = form.get('photo');
-    //     const email = form.get('email');
-    //     const password = form.get('password');
-    //     console.log(name, photo, email, password);
-
-    //     if (password.length < 6) {
-    //         toast.warn('Password  must be at least 6 characters or longer');
-    //         return;
-    //     }
-    //     else if (!/[A-Z]/.test(password)) {
-    //         toast.warn('Password must have an Uppercase letter');
-    //         return;
-    //     }
-    //     else if (!/[a-z]/.test(password)) {
-    //         toast.warn('Password must have an Lowercase letter');
-    //         return;
-    //     }
-
-
-
-    //     // create user
-    //     createUser(email, password)
-    //         .then(result => {
-    //             console.log(result.user);
-    //             toast.success('User created successfully');
-    //         })
-    //         .catch(error => {
-    //             console.error(error);
-    //             toast.error('Something went wrong, please try again');
-    //         })
-    // }
 
 
     return (
