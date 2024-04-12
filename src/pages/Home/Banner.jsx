@@ -10,12 +10,13 @@ import 'swiper/css/scrollbar';
 import banner1 from '../../assets/forest.jpg';
 import banner2 from '../../assets/banner2.jpg';
 import banner3 from '../../assets/banner3.jpg';
+import 'animate.css';
 
 const Banner = () => {
     
     return (
         <div className='mb-10 my-7'>
-            <p className='text-xl font-semibold text-center mx-auto md:w-[380px]'>If you want to buy or rent our lands, then please show our website.</p>
+            <p className='text-xl font-semibold text-center mx-auto md:w-[380px] animate__animated animate__bounceInDown'>If you want to buy or rent our lands, then please visit our website.</p>
             <Swiper
             className='lg:mt-7 my-5 mt-20 '
             modules={[Navigation, Pagination, Scrollbar, A11y]}

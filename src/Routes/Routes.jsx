@@ -7,6 +7,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Details from "../Details/Details";
 import PrivateRoute from "./PrivateRoute";
+import UserProfile from "../pages/UserProfile/UserProfile";
 
 
 
@@ -22,11 +23,16 @@ const router = createBrowserRouter([
         },
         {
             path: '/estates/:id',
-            element: <PrivateRoute><Details></Details></PrivateRoute>
+            element: <PrivateRoute><Details></Details></PrivateRoute>,
+            loader: () => fetch('../estates.json')
         },
         {
             path: '/contact',
             element: <ContactUs></ContactUs>
+        },
+        {
+            path: '/user',
+            element: <UserProfile></UserProfile>
         },
         {
             path: '/login',

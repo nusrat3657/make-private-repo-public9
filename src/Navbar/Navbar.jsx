@@ -16,12 +16,12 @@ const Navbar = () => {
         <li><NavLink to="/" className={({ isActive }) =>
             isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
         }>Home</NavLink></li>
-        <li><NavLink to="/register" className={({ isActive }) =>
+        {/* <li><NavLink to="/register" className={({ isActive }) =>
             isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
-        }>Register</NavLink></li>
-        <li><NavLink to="/login" className={({ isActive }) =>
+        }>Register</NavLink></li> */}
+        <li><NavLink to="/user" className={({ isActive }) =>
             isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
-        }>Login</NavLink></li>
+        }>User Profile</NavLink></li>
         <li><NavLink to="/contact" className={({ isActive }) =>
             isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
         }>Contact Us</NavLink></li>

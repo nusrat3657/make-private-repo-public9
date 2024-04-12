@@ -9,15 +9,19 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
-    const {signIn, googleLogin, githubLogin} = useContext(AuthContext);
+    const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const location = useLocation();
     // const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state || '/'
+
+    const navigate = useNavigate();
     console.log('location in the login page', location);
 
     const [showPassword, setShowPassword] = useState(false);
@@ -25,17 +29,30 @@ const Login = () => {
     const onSubmit = (data) => {
         const { email, password } = data
         signIn(email, password)
-        .then(result => {
-            console.log(result.user);
-            toast.success('User Login Successfully');
-        })
-        .catch(error => {
-            console.error(error);
-            toast.error(error.message);
-        })
+            .then(result => {
+                console.log(result.user);
+                toast.success('User Login Successfully');
+                if (result.user) {
+                    navigate(from);
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                toast.error(error.message);
+            })
     }
 
-    
+    const handleLogin = provider => {
+        provider()
+            .then(result => {
+                if (result.user) {
+                    navigate(from);
+                }
+                
+            })
+    }
+
+
     // const [user, setUser] = useState(null);
 
     // const handleLogin = e => {
@@ -49,8 +66,8 @@ const Login = () => {
     //     .then(result =>{
     //         console.log(result.user);
 
-        // navigate after login
-        // navigate(location?.state ? location.state : '/')
+    // navigate after login
+    // navigate(location?.state ? location.state : '/')
 
     //     })
     //     .catch(error =>{
@@ -82,7 +99,7 @@ const Login = () => {
                                 name="password"
                                 placeholder="Enter your password"
                                 className="input input-bordered w-full" {...register("password", { required: true })} />
-                                {errors.password && <span className="text-red-500">This field is required</span>}
+                            {errors.password && <span className="text-red-500">This field is required</span>}
                             <span className="absolute top-4 -ml-8" onClick={() => setShowPassword(!showPassword)}>
                                 {
                                     showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
@@ -94,22 +111,22 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn bg-[#23BE0A] text-white font-semibold text-lg">Login</button>
+                        <button  className="btn bg-[#23BE0A] text-white font-semibold text-lg">Login</button>
                     </div>
                 </form>
                 <p className="font-semibold text-center">Don't have an account? Please <Link to='/register' className="text-red-500">Register</Link></p>
                 <div className='p-2  mt-6 flex justify-evenly'>
-                    <button onClick={() => googleLogin()} className="btn btn-outline hover:bg-[#23BE0A]">
+                    <button onClick={() => handleLogin(googleLogin)} className="btn btn-outline hover:bg-[#23BE0A]">
                         <FaGoogle></FaGoogle>
                         Login with Google
                     </button>
-                    <button onClick={() => githubLogin()} className="btn btn-outline hover:bg-[#23BE0A]">
+                    <button onClick={() => handleLogin(githubLogin)} className="btn btn-outline hover:bg-[#23BE0A]">
                         <FaGithub></FaGithub>
                         Login with Github
                     </button>
                 </div>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     );
 };
