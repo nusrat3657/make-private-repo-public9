@@ -25,7 +25,7 @@ const Home = () => {
             <div>
                 <h3 className="text-3xl font-bold text-center mt-10 ">Our Lands</h3>
                 <p className=" mx-auto lg:w-[700px] md:w-[500px] text-center mt-5">Land is considered real estate or property defined by specific borders. It can serve a commercial purpose and be seen as a factor of production. We have many solid lands for sale and rent. Our lands here...</p>
-                <div className="md:grid grid-cols-2 lg:gap-10 my-10 gap-2">
+                <div className="md:grid grid-cols-3 lg:gap-10 space-y-3 my-10 gap-2">
                 {
                     estates.map(estate => <Estates
                         key={estate.id}

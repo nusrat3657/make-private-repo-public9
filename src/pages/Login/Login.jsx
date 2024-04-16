@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -77,6 +78,9 @@ const Login = () => {
 
     return (
         <div className="">
+            <Helmet>
+                <title>Eco Domain | Login</title>
+            </Helmet>
             <Navbar></Navbar>
             <div className="bg-[#23BE0A]/20 rounded-lg md:w-3/4 lg:w-1/2 mx-auto p-10 my-10">
                 <h2 className="text-4xl my-2 text-center font-bold  font-league">Login Your Account</h2>
@@ -102,7 +106,7 @@ const Login = () => {
                             {errors.password && <span className="text-red-500">This field is required</span>}
                             <span className="absolute top-4 -ml-8" onClick={() => setShowPassword(!showPassword)}>
                                 {
-                                    showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
+                                    showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
                                 }
                             </span>
                         </div>

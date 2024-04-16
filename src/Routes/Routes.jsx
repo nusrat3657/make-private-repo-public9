@@ -9,6 +9,7 @@ import Details from "../Details/Details";
 import PrivateRoute from "./PrivateRoute";
 import UserProfile from "../pages/UserProfile/UserProfile";
 import UpdateProfile from "../pages/UpdateProfile/UpdateProfile";
+// import YourChoices from "../pages/YourChoices/YourChoices";
 
 
 
@@ -25,15 +26,19 @@ const router = createBrowserRouter([
         {
             path: '/estates/:id',
             element: <PrivateRoute><Details></Details></PrivateRoute>,
-            loader: () => fetch('../estates.json')
+            // loader: () => fetch('../estates.json')
         },
+        // {
+        //     path: '/lands',
+        //     element: <PrivateRoute><YourChoices></YourChoices></PrivateRoute>
+        // },
         {
             path: '/update',
             element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
         },
         {
             path: '/contact',
-            element: <ContactUs></ContactUs>
+            element: <PrivateRoute><ContactUs></ContactUs></PrivateRoute>
         },
         {
             path: '/user',

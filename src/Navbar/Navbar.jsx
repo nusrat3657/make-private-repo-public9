@@ -17,9 +17,13 @@ const Navbar = () => {
             isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
         }>Home</NavLink></li>
 
+
         {
             user ?
                 <>
+                    {/* <li><NavLink to="/lands" className={({ isActive }) =>
+                        isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
+                    }>Your Choices</NavLink></li> */}
                     <li><NavLink to="/user" className={({ isActive }) =>
                         isActive ? "font-bold text-[#23BE0A] border-2  rounded-lg border-[#23BE0A]" : ""
                     }>User Profile</NavLink></li>
@@ -67,7 +71,8 @@ const Navbar = () => {
 
                             <Link to="/user"><div className="dropdown dropdown-hover">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar"><div className="  rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src={user?.photoURL || "https://i.ibb.co/PW9Wxt7/307ce493-b254-4b2d-8ba4-d12c080d6651.jpg"} />
+                                    <img alt="Tailwind CSS Navbar component" src={user?.photoURL
+                                        || "https://i.ibb.co/Y0RBQqQ/download.png"} />
                                 </div></div>
                                 <ul tabIndex={0} className="-ml-10 dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box ">
                                     <li><a>{user?.displayName || "User Name not found"}</a></li>

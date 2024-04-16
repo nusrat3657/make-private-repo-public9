@@ -1,6 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { useLoaderData } from "react-router-dom";
+// import { useState } from "react";
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import 'animate.css';
 // import { useContext } from "react";
 // import { AuthContext } from "../providers/AuthProvider";
 
@@ -13,15 +17,28 @@ const Details = () => {
     const estate = estates.find(estate => estate.id === idInt);
     console.log(estate);
 
+    // const [lands, setLands] = useState([]);
+
+    // const handleLands = (est) => {
+    //     // saveLands(idInt);
+    //     if (!estate) {
+    //         setLands([...lands, est]);
+    //     }
+    //     else {
+    //         toast('This card has been already exist');
+    //     }
+    // }
+
     return (
         <div>
             <Navbar></Navbar>
-            <div className="lg:grid grid-cols-2 gap-10 my-10 lg:mx-0 mx-5">
-                <div className="bg-[#23BE0A]/20 rounded-xl p-10 py-20">
+            <div className="grid grid-cols-2 gap-10 my-10 lg:mx-0 mx-5">
+                <div className="bg-[#23BE0A]/20 rounded-xl p-10 py-20 animate__animated animate__rotateInDownLeft" >
                     <img className="rounded-xl" src={estate.image} alt="" />
                 </div>
-                <div>
+                <div className="animate__animated animate__rotateInDownRight">
                     <h2 className="text-[#23BE0A] text-4xl font-bold">{estate.estate_title}</h2>
+                    <p className="font-semibold">{estate.segment_name}</p>
                     <p className="my-5 text-lg">{estate.description}</p>
                     <hr />
                     <p className="my-3 text-lg "><span className="font-bold mr-2">Location:  </span> {estate.location}</p>
@@ -49,12 +66,14 @@ const Details = () => {
                         </div>
                     </div>
                     <hr />
-                    <div>
-                        <Link to="/"><button className="btn border-2 bg-[#23BE0A] text-white mt-2 text-lg">Go Home</button></Link>
+                    <div className="space-x-4 mt-2">
+                        {/* <Link to="/lands" onClick={() => handleLands(estate)}><button className="btn border-2 bg-[#23BE0A]/20 text-[#23BE0A] mt-2 text-lg">For {estate.status}</button></Link> */}
+                        <Link to="/"><button className="btn border-2 bg-[#23BE0A]  text-white mt-2 text-lg">Go Home</button></Link>
 
                     </div>
                 </div>
             </div>
+            {/* <ToastContainer /> */}
         </div>
     );
 };

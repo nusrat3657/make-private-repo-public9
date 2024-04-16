@@ -1,8 +1,47 @@
-
+import logo from '../assets/title_logo.png'
 
 const Footer = () => {
     return (
-        <></>
+        <>
+            <footer className="footer p-10 bg-[#23BE0A]/20 text-base-content lg:px-52">
+                <aside>
+                    <img className='w-[100px] -mt-8 -mb-14' src={logo} alt="" />
+                    <svg width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" className="fill-current">
+                    </svg>
+                    <p>ECO DOMAIN<br />Providing reliable tech since 1992</p>
+                </aside>
+                <nav className="flex">
+                    <nav>
+                        <h6 className="footer-title">Services</h6>
+                        <br />
+                        <a className="link link-hover">Agricultural Land</a>
+                        <br />
+                        <a className="link link-hover">Forest</a>
+                        <br />
+                        <a className="link link-hover">Farm</a>
+                        <br />
+                        <a className="link link-hover">Plantation</a>
+                    </nav>
+                    <nav className='ml-24'>
+                        <h6 className="footer-title">Company</h6>
+                        <br />
+                        <a className="link link-hover">About us</a>
+                        <br />
+                        <a className="link link-hover">Contact</a>
+                        <br />
+                        <a className="link link-hover">Jobs</a>
+                        <br />
+                        <a className="link link-hover">Press kit</a>
+                    </nav>
+                </nav>
+                <nav className=''>
+                    <h6 className="footer-title">Legal</h6>
+                    <a className="link link-hover">Terms of use</a>
+                    <a className="link link-hover">Privacy policy</a>
+                    <a className="link link-hover">Cookie policy</a>
+                </nav>
+            </footer>
+        </>
         // <footer className="footer p-10 bg-base-300 text-base-content lg:px-[250px]">
         //     <nav>
         //         <h6 className="footer-title">Services</h6>

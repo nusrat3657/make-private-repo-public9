@@ -1,12 +1,13 @@
 
 import Navbar from "../../Navbar/Navbar";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -16,8 +17,8 @@ const Register = () => {
 
     const [showPassword, setShowPassword] = useState(false);
 
-    const location = useLocation();
-    const from = location?.state || '/'
+    // const location = useLocation();
+    const from =  '/'
 
     const navigate = useNavigate();
     console.log('location in the login page', location);
@@ -40,13 +41,13 @@ const Register = () => {
 
         // create user
         createUser(email, password, )
-            .then(result => {
-                console.log(result.user);
-                toast.success('User created successfully');
+            .then(() => {
+                // console.log(result.user);
                 updateUserProfile(fullName, image)
                 .then(() =>{
                     navigate(from);
                 })
+                toast.success('User created successfully');
                 
             })
             .catch(error => {
@@ -60,6 +61,9 @@ const Register = () => {
 
     return (
         <div className="">
+            <Helmet>
+                <title>Eco Domain | Register</title>
+            </Helmet>
             <Navbar></Navbar>
             <div className="bg-[#23BE0A]/20 rounded-lg md:w-3/4 lg:w-1/2 mx-auto p-10 my-10">
                 <h2 className="text-4xl my-2 text-center font-bold  font-league">Register Your Account</h2>
@@ -83,7 +87,7 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text text-lg font-semibold">Photo URL</span>
                         </label>
-                        <input type="text" name="photo" placeholder="Enter Your photo url" className="input input-bordered" {...register("photoURL")} />
+                        <input type="text" name="image" placeholder="Enter Your photo url" className="input input-bordered" {...register("image")} />
                     </div>
                     <div className="form-control ">
                         <label className="label">
@@ -98,7 +102,7 @@ const Register = () => {
                             {errors.password && <span className="text-red-500">This field is required</span>}
                             <span className="absolute top-4 -ml-8" onClick={() => setShowPassword(!showPassword)}>
                                 {
-                                    showPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
+                                    showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
                                 }
                             </span>
                         </div>
