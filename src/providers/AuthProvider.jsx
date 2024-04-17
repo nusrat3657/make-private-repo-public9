@@ -27,6 +27,11 @@ const AuthProvider = ({children}) => {
           })
     }
 
+    // const profileUpdate = () =>{
+    //     setLoading(true);
+    //     return updateMethod(auth.currentUser);
+    // }
+
     const signIn = (email, password) =>{
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
@@ -66,6 +71,7 @@ const AuthProvider = ({children}) => {
         googleLogin,
         githubLogin,
         updateUserProfile,
+        // profileUpdate,
         logOut,
     }
 

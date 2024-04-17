@@ -12,7 +12,7 @@ const ContactUs = () => {
         <div>
             <Helmet><title>Eco Domain | Contact Us</title></Helmet>
             <Navbar></Navbar>
-            <section className="py-6 bg-[#23BE0A]/20 text-gray-900 mt-16">
+            <section className="py-6 bg-[#23BE0A]/20 text-gray-900 my-6">
                 <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
                     <div className="py-6 md:py-0 md:px-6 mt-16">
                         <h1 className="text-4xl font-bold">Get in touch</h1>

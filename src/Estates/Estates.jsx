@@ -6,7 +6,7 @@ import 'animate.css';
 const Estates = ({estates}) => {
     // const {user} = useContext(AuthContext);
     return (
-        <div className="rounded-xl lg:w-[350px] border-[3px] border-[#23BE0A]/30 lg:p-8 md:p-5 p-6 lg:hover:scale-105 animate__animated animate__zoomIn">
+        <div className="rounded-xl lg:w-[350px] border-[3px] border-[#23BE0A]/30 lg:p-8 shadow-xl md:p-5 p-6 lg:hover:scale-105 animate__animated animate__zoomIn">
             <figure><img className=" rounded-xl" src={estates.image} alt="" /></figure>
             <div className="">
                 <h2 className="text-xl font-bold mt-4 mb-1">{estates.estate_title}</h2>
