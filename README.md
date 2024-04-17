@@ -1,8 +1,23 @@
-# React + Vite
+# ECO DOMAIN
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Eco Domain, your destination for exploring sustainable land options!
 
-Currently, two official plugins are available:
+**Live Site:** [ecodomain.com]()
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features and Characteristics:
+
+- **Wide Range of Eco-Friendly Land Options**: Explore a diverse selection of sustainable land, including agricultural land, ranches, farms, vineyards, forests, and plantations.
+
+- **Detailed Listings**: Each listing provides comprehensive information, including images, descriptions, prices, locations, and available facilities, helping you make informed decisions.
+
+- **User Authentication**: Securely register and login to access additional features and save favorite listings for future reference.
+
+- **Social Authentication**: Register and login easily using your Google, GitHub, Facebook, or Twitter accounts, simplifying the authentication process.
+
+- **Interactive User Experience**: Enjoy a smooth and interactive browsing experience, thanks to intuitive navigation and responsive design.
+
+## Packages Used
+
+- Animate.css,
+- React Hook form,
+- Swiper slider
