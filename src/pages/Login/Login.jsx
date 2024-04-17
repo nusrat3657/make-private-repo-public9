@@ -82,7 +82,7 @@ const Login = () => {
                 <title>Eco Domain | Login</title>
             </Helmet>
             <Navbar></Navbar>
-            <div className="bg-[#23BE0A]/20 rounded-lg md:w-3/4 lg:w-1/2 mx-auto p-10 my-10">
+            <div className="bg-[#23BE0A]/20 rounded-lg md:w-3/4 lg:w-1/2 mx-auto lg:p-10 md:p-10 p-3 my-10">
                 <h2 className="text-4xl my-2 text-center font-bold  font-league">Login Your Account</h2>
                 <hr />
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
