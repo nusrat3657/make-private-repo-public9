@@ -23,7 +23,7 @@ Welcome to Eco Domain, your destination for exploring sustainable land options!
 - Swiper slider
 
 ## How to clone and run this project
--Clone the repository.
--Install dependencies using npm install.
--Set up Firebase configuration keys using environment variables.
+-Clone the repository,
+-Install dependencies using npm install,
+-Set up Firebase configuration keys using environment variables,
 -Run the project using npm start.
